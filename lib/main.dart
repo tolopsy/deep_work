@@ -6,8 +6,8 @@ void main() {
   runApp(MyApp());
 }
 
-final double defaultPadding = 4.0;
-final Color primaryColor = Colors.deepPurple;
+const double defaultPadding = 4.0;
+const Color primaryColor = Colors.deepPurple;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -34,7 +34,7 @@ class TimerScreen extends StatelessWidget {
         title: Text('Focus'),
       ),
       body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
               final double availableWidth = constraints.maxWidth;
@@ -54,7 +54,7 @@ class TimerScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: defaultPadding),
+                            const EdgeInsets.symmetric(horizontal: defaultPadding),
                       ),
                       Expanded(
                         child: DeepWorkButton(
@@ -66,7 +66,7 @@ class TimerScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: defaultPadding),
+                            const EdgeInsets.symmetric(horizontal: defaultPadding),
                       ),
                       Expanded(
                         child: DeepWorkButton(
@@ -104,7 +104,7 @@ class TimerScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: defaultPadding),
+                            const EdgeInsets.symmetric(horizontal: defaultPadding),
                       ),
                       Expanded(
                         child: DeepWorkButton(
