@@ -1,8 +1,9 @@
-import 'package:deep_work/timer_model.dart';
+import 'package:deep_work/settings.dart';
+import 'package:deep_work/timer/timer_model.dart';
 import 'package:flutter/material.dart';
 import 'package:deep_work/widgets.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:deep_work/timer.dart';
+import 'package:deep_work/timer/timer.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,12 +32,34 @@ class MyApp extends StatelessWidget {
 
 void emptyCallBack() {}
 
+void routeToSettings(BuildContext context) {
+  Navigator.push(
+      context, MaterialPageRoute(builder: (context) => SettingsScreen()));
+}
+
 class TimerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final List<PopupMenuItem<String>> menuItems = List<PopupMenuItem<String>>();
+    menuItems.add(PopupMenuItem(
+      value: "Settings",
+      child: Text("Settings"),
+    ));
     return Scaffold(
       appBar: AppBar(
         title: Text('Focus'),
+        actions: [
+          PopupMenuButton<String>(
+            itemBuilder: (BuildContext context) {
+              return menuItems;
+            },
+            onSelected: (value) {
+              if (value == "Settings") {
+                routeToSettings(context);
+              }
+            },
+          )
+        ],
       ),
       body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
