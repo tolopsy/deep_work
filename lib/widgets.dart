@@ -23,3 +23,21 @@ class DeepWorkButton extends StatelessWidget {
     );
   }
 }
+
+class SettingsButton extends StatelessWidget {
+  final Color color;
+  final String text;
+  final int value;
+
+  SettingsButton(this.color, this.text, this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      child: Text(this.text,
+          style: TextStyle(color: Colors.white, fontSize: 20.0)),
+      onPressed: () => null,
+      style: TextButton.styleFrom(backgroundColor: this.color),
+    );
+  }
+}
