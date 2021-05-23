@@ -32,12 +32,12 @@ class MyApp extends StatelessWidget {
 
 void emptyCallBack() {}
 
-void routeToSettings(BuildContext context) {
-  Navigator.push(
-      context, MaterialPageRoute(builder: (context) => SettingsScreen()));
-}
-
 class TimerScreen extends StatelessWidget {
+  void routeToSettings(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SettingsScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<PopupMenuItem<String>> menuItems = List<PopupMenuItem<String>>();

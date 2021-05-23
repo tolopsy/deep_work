@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import './timer_model.dart';
 
 class CountdownTimer {
@@ -39,7 +41,19 @@ class CountdownTimer {
     });
   }
 
-  void startWork() {
+  Future readSettings() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    this.work =
+        prefs.getInt('workTime') == null ? 30 : prefs.getInt('workTime');
+
+    this.shortBreak =
+        prefs.getInt('shortBreak') == null ? 30 : prefs.getInt('shortBreak');
+    this.longBreak =
+        prefs.getInt('longBreak') == null ? 30 : prefs.getInt('longBreak');
+  }
+
+  void startWork() async {
+    await readSettings();
     _fractionLeft = 1;
     _timeLeft = Duration(minutes: this.work);
     _fullTime = _timeLeft;
